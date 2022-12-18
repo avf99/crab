@@ -15,3 +15,18 @@ if(getChromeVersion() <= 70) {
     root.style.setProperty('--crab-size', crabSize + "px");
     root.style.setProperty('--sun-diameter', sunDiameter + "px");
 }
+
+function blowOut() {
+    var smokes = document.getElementsByClassName("smoke");
+    var flame = document.getElementsByClassName("flame");
+    
+    for (let i = 0; i < flame.length; i++) {
+        flame[i].style.opacity = 0;
+    }
+    
+    for (let i = 0; i < smokes.length; i++) {
+        smokes[i].style.animation = "flame-off 3s linear forwards";
+        smokes[i].style.animationDelay = i%5 * 0.5 + "s";
+    }
+    
+}
